@@ -6,6 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  slidesOptions = {
+    initialSlide: 0,
+    direction: 'horizontal',
+    speed: 5,
+    loop: true,
+    autoplay: true
+  };
 
   constructor() {}
 
