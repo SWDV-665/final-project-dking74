@@ -1,9 +1,9 @@
 import BaseErrorResponse from './BaseErrorResponse';
 
 export default class BadRequestErrorResponse extends BaseErrorResponse {
-  constructor() {
+  constructor(message?: string) {
     super(
-      'The request was poorly constructed. Please try again.',
+      `The request was poorly constructed. ${message ? message + '.':  ''} Please try again.`,
       400
     );
   }

@@ -18,7 +18,10 @@ app.use((err, req, res, next) => {
     res.status(err.statusCode).json({ status: err.statusCode, message: err.errorMessage });
   }
   console.debug('An expected error occurred. Original Error: ' + err.toString());
-  res.status(500).send(err.toString());
+  res.status(500).send({
+    status: 500,
+    message: err.toString()
+  });
 });
 
 export default app;
