@@ -1,0 +1,13 @@
+ion-tabs {
+    z-index: 20;
+}
+ion-tab-bar {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .1);
+    z-index: 10;
+    border: none;
+}
+
+ion-tab-button {
+    color: navy;
+    color: var(--ion-color-warning);
+}

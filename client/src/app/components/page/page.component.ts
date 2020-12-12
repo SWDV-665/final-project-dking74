@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { AppTabProperties } from '@types';
 
 @Component({
   selector: 'app-page',
@@ -6,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page.component.scss'],
 })
 export class PageComponent implements OnInit {
+  @Input() tabs: AppTabProperties[] = [
+    {
+      name: 'play',
+      icon: 'play'
+    },
+    {
+      name: 'leader-board',
+      icon: 'clipboard'
+    }
+  ];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
-
 }

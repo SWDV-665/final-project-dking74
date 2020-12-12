@@ -17,9 +17,12 @@
     ],
     "paths": {
       "@pages/*": ["src/app/pages/*"],
+      "@models/*": ["src/app/models/*"],
       "@components/*": ["src/app/components/*"],
-      "@components": ["src/app/components/index.ts"],
-      "@services/*": ["src/app/services/*"]
+      "@services/*": ["src/app/services/*"],
+      "@services": ["src/app/services/index.ts"],
+      "@types": ["src/app/types.ts"],
+      "@config": ["src/environments/environment.ts"]
     }
   },
   "angularCompilerOptions": {

@@ -1,0 +1,10 @@
+<ion-tabs>
+  <ion-tab-bar [slot]="location" color="primary" [translucent]="true">
+    <ion-tab-button *ngFor="let tab of tabs"
+      href="/{{tab.name}}"
+    >
+      <ion-icon [name]="tab.icon"></ion-icon>
+      <ion-label>{{ tab.name }}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

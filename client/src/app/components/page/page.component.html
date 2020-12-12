@@ -1,9 +1,18 @@
-<app-header [collapsible]="false"></app-header>
+<ion-app>
+  <app-account-menu></app-account-menu>
+  <app-header [collapsible]="false"></app-header>
 
-<ion-content
-    [fullscreen]="true"
-    color="dark"
->
-  <app-header [collapsible]="true"></app-header>
-  <div id="container"><ng-content></ng-content></div>
-</ion-content>
+  <ion-content [fullscreen]="true" color="dark">
+    <app-header [collapsible]="true"></app-header>
+
+    <div id="container">
+      <ng-content></ng-content>
+    </div>
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <app-tabs [tabs]="tabs"></app-tabs>
+    </ion-toolbar>
+  </ion-footer>
+</ion-app>
