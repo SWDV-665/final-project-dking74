@@ -1,5 +1,55 @@
 <app-page>
-  <ion-grid>
-    
-  </ion-grid>
+  <ion-card class="content-card">
+    <ion-card-header>
+      <ion-card-title>{{ pageText }}</ion-card-title>
+      <app-countdown *ngIf="loaded && gameStarted"
+        (done)="questionTimeout()"
+        [reloader]="reloadSignaler.asObservable()"
+        [stopTimer]="stopTimerSignaler.asObservable()"
+        [props]="questionTimesProps"
+      ></app-countdown>
+    </ion-card-header>
+    <ion-card-content>
+      <app-countdown *ngIf="loaded && !gameStarted && !showGameResults" (done)="play()" [props]="gameBeginTimerProps"></app-countdown>
+      <ion-slides [options]="sliderOptions" *ngIf="loaded && gameStarted" #slides>
+        <ion-slide *ngFor="let question of questions; let currentSlideIndex = index;">
+          <ion-grid>
+            <ion-row>
+              <ion-col size-md="6" size="12" class="game-col question-col">
+                <ion-label>{{ question.text }}</ion-label>
+              </ion-col>
+              <ion-col size-md="6" size="12" class="game-col answers-col">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size-md="12" size="12" *ngFor="let answer of question.possible_answers">
+                      <ion-button expand="full" (click)="answerSubmitted(answer, currentSlideIndex)" [class]="getAnswerBindings(answer, question)">{{ answer }}</ion-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+      </ion-slides>
+      <div *ngIf="!gameStarted && showGameResults" class="game-results">
+        <div>
+          <span class="title">Correct:</span><span>{{ answerResults.right }}</span>
+        </div>
+        <div>
+          <span class="title">Wrong:</span><span>{{ answerResults.wrong }}</span>
+        </div>
+        <div>
+          <span class="title">Score:</span><span>{{ answerResults.score }}</span>
+        </div>
+        <ion-item-group class="result-action-button-group">
+          <ion-button expand="full" href="/play" class="error">
+            Go back
+          </ion-button>
+          <ion-button expand="full" class="success" (click)="submitScore()">
+            Submit score
+          </ion-button>
+        </ion-item-group>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </app-page>

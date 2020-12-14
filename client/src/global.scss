@@ -24,3 +24,27 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.error-alert-dialog {
+    --backdrop-opacity: .75;
+    --background: #e5e5e5;
+
+    .alert-title {
+        color: navy;
+    }
+}
+
+.content-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    background-color: rgba(navy, .2);
+    height: 100%;
+    width: 75%;
+    margin: 0 auto;
+    overflow-y: scroll;
+    
+    ion-card-title {
+        --color: navy;
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+}

@@ -14,7 +14,7 @@ export class PageComponent implements OnInit {
       icon: 'play'
     },
     {
-      name: 'leader-board',
+      name: 'leaderboard',
       icon: 'clipboard'
     }
   ];

@@ -12,13 +12,16 @@ import { PlayPage } from './play.page';
 import { PlayPageRoutingModule } from './play-routing.module';
 
 import { AccountMenuComponent} from '@components/account-menu/account-menu.component';
+import { CountdownComponent } from '@components/countdown/countdown.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PlayPageRoutingModule
+    PlayPageRoutingModule,
+    NgCircleProgressModule.forRoot({})
   ],
   declarations: [
     AccountMenuComponent,
@@ -26,7 +29,8 @@ import { AccountMenuComponent} from '@components/account-menu/account-menu.compo
     PageComponent,
     HeaderComponent,
     TabsComponent,
-    PlaySoloPage
+    PlaySoloPage,
+    CountdownComponent
   ]
 })
 export class PlayPageModule {}

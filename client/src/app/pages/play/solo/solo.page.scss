@@ -1,0 +1,52 @@
+ion-card {
+    ion-button {
+        white-space: normal;
+    }
+
+    .question-col {
+        ion-label {
+            color: navy;
+            font-size: 20px;
+        }
+    }
+
+    .game-col {
+        padding: 10px;
+    }
+
+    @media screen and (min-width: 768px) {
+        .question-col {
+            border-right: 1px solid black;
+        }
+    }
+
+    .success::part(native) {
+        background-color: rgba(green, .5);
+    }
+
+    .error::part(native) {
+        background-color: rgba(red, .5)
+    }
+
+    .game-results {
+        div {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: navy;
+            text-align: center;
+
+            :first-child {
+                margin-right: 25px;
+            }
+            span {
+                display: inline-block;
+                width: 100px;
+            }
+        }
+
+        .result-action-button-group {
+            width: 100%;
+            padding: 50px 20px;
+        }
+    }
+}

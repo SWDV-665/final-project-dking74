@@ -1,0 +1,19 @@
+<app-page>
+  <ion-card class="content-card">
+    <ion-card-header>
+      <ion-card-title>Leaderboard</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid class="leaderboard">
+        <ion-row class="header-row">
+          <ion-col>Name</ion-col>
+          <ion-col>Score</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let score of leaderboard">
+          <ion-col>{{ score.name }}</ion-col>
+          <ion-col>{{ score.value }} </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</app-page>

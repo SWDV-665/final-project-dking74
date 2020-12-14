@@ -1,0 +1,12 @@
+ion-avatar {
+    --icon-size: 40px;
+
+    margin: 0 auto;
+    height: var(--icon-size);
+    width: var(--icon-size);
+
+    ion-icon {
+        font-size: var(--icon-size);
+        color: var(--ion-color-primary);
+    }
+}

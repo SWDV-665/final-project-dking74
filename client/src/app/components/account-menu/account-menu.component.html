@@ -1,12 +1,15 @@
 <ion-menu contentId="main-content" side="end">
   <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="secondary">
+      <ion-buttons>
         <ion-button (click)="closeMenu()">
           <ion-icon slot="icon-only" name="close-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
-      <ion-title>Account Overview</ion-title>
+      <ion-avatar>
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-avatar>
+      <div style="text-align: center; color: var(--ion-color-primary);">Account</div>
     </ion-toolbar>
   </ion-header>
 

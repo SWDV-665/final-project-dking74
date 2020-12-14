@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: './pages/play/play.module#PlayPageModule'
   },
   {
+    path: 'leaderboard',
+    loadChildren: './pages/leaderboard/leaderboard.module#LeaderboardPageModule'
+  },
+  {
     path: '',
     redirectTo: '/play',
     pathMatch: 'full'
