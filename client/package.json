@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:prod": "http-server-pwa ./www index.html $PORT",
+    "start:prod": "http-server-spa ./www index.html $PORT",
     "build": "ng build",
     "build:prod": "ionic build --prod",
     "test": "ng test",
@@ -34,7 +34,7 @@
     "@ionic/cli": "^6.12.2",
     "cordova-plugin-nativestorage": "^2.3.2",
     "cordova-plugin-x-toast": "^2.7.2",
-    "http-server-pwa": "^2.1.0",
+    "http-server-spa": "^1.3.0",
     "ng-circle-progress": "^1.6.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
