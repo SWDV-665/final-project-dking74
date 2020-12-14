@@ -4,10 +4,12 @@ import cors from 'cors';
 import v1 from './v1';
 import './mongoose.connector';
 import { BaseErrorResponse } from './exceptions';
+import QueryParamMiddleware from './middleware/request.middleware';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(QueryParamMiddleware);
 app.use('/api/v1', v1);
 app.use('*', (req, res) => {
   console.log('The route does not exist!');

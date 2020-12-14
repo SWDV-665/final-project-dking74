@@ -1,6 +1,16 @@
-export interface GetQuestionConditionals {
+export interface GetQuestionFieldContitionals {
     text?: string,
     difficulty?: string
+}
+
+export interface GetQuestionResultsCondtionals {
+    random?: boolean,
+    limit?: number
+}
+
+export interface GetQuestionConditionals extends
+    GetQuestionFieldContitionals,
+    GetQuestionResultsCondtionals {
 }
 
 export interface GetScoreConditionals {

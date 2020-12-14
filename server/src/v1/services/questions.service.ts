@@ -1,11 +1,33 @@
 import mongoose from 'mongoose';
 
 import QuestionModel, { Question, QuestionDocument } from '../models/Question';
-// import { GetQuestionConditionals } from '@types';
 import { GetQuestionConditionals } from '../../types';
 
-export async function getAllQuestions(conditionals: GetQuestionConditionals) {
-  return QuestionModel.find(conditionals).exec();
+export async function getAllQuestions(conditionals?: GetQuestionConditionals) {
+  const { random, limit, ...fieldConditionals } = conditionals || {};
+  if (random) {
+    if (!limit) {
+      console.warn('Random questions were generated with no limit. Default of 10 was used.');
+    }
+    return getRandomQuestions(limit || 10);
+  }
+
+  const query = Object.keys(fieldConditionals).reduce((prev, curr) => {
+    if (curr === 'difficulty' || curr === 'text')
+      prev[curr] = fieldConditionals[curr];
+    return prev;
+  }, {});
+  return QuestionModel.find(query).exec();
+}
+
+export function getRandomQuestions(limit: number): Promise<Question[]> {
+  return QuestionModel.aggregate([
+    { $sample: { size: limit } }
+  ], (err, docs: Question[]) => {
+    if (err) Promise.reject(err);
+
+    return docs;
+  });
 }
 
 export function getQuestionItem(id: string) {
@@ -30,6 +52,7 @@ export function deleteQuestionItem(id: string) {
 
 export default {
   getAllQuestions,
+  getRandomQuestions,
   getQuestionItem,
   createQuestionItem,
   createMultipleQuestionItems,

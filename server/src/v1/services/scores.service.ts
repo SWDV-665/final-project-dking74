@@ -3,7 +3,10 @@ import ScoreModel, { ScoreDocument } from '../models/Score';
 
 export const getScores = (scoreConditionals: GetScoreConditionals) => {
     const { username } = scoreConditionals;
-    return ScoreModel.find({ name: username}).exec();
+    
+    let query = {};
+    if (username) query['name'] = username;
+    return ScoreModel.find(query).exec();
 }
 
 export const createScore = (score: ScoreDocument) => {

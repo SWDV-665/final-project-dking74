@@ -5,14 +5,8 @@ import { GetQuestionConditionals } from '../../types';
 import { Question, QuestionDocument } from '../models/Question';
 import services from '../services/questions.service';
 
-export function getAllQuestions(req: Request, res: Response, next) {
-  const conditionals: GetQuestionConditionals =
-    Object.entries(req.query).reduce((prev, curr) => {
-      if (curr[0] === 'text' || curr[0] === 'difficulty') {
-        prev[curr[0]] = curr[1];
-      }
-      return prev;
-    }, {});
+export function getAllQuestions(req, res, next) {
+  const conditionals: GetQuestionConditionals = req.query;
   services.getAllQuestions(conditionals)
     .then(questions => res.status(200).json(questions))
     .catch(error => next(new ServerErrorResponse(error)));
