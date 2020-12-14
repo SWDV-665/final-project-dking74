@@ -3,9 +3,9 @@
     <ion-card-header>
       <ion-card-title>{{ pageText }}</ion-card-title>
       <app-countdown *ngIf="loaded && gameStarted"
-        (done)="questionTimeout()"
+        (done)="questionCompleted($event)"
         [reloader]="reloadSignaler.asObservable()"
-        [stopTimer]="stopTimerSignaler.asObservable()"
+        [running]="gameStarted && isAnswerSelected"
         [props]="questionTimesProps"
       ></app-countdown>
     </ion-card-header>

@@ -1,3 +1,6 @@
+import { Question } from "@models/Question";
+import { ObjectUnsubscribedError } from "rxjs";
+
 export interface AppTabProperties {
   name: string;
   icon: string;
@@ -31,4 +34,15 @@ export interface AnswerResults {
   right?: number;
   wrong?: number;
   score?: number;
-} 
+}
+
+export interface SessionData {
+  sessionId?: string;
+  lastUpdated: number;
+  currentAnswerResults: AnswerResults;
+  questions: Question[];
+  currentQuestionIndex: number;
+  currentQuestion: Question;
+  pageText: string;
+  gameStarted: boolean;
+}

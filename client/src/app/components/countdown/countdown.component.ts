@@ -11,6 +11,12 @@ export class CountdownComponent implements OnInit {
   @Input() reloader: Observable<boolean> = new Observable<boolean>();
   @Input() stopTimer: Observable<boolean> = new Observable<boolean>();
   @Input() props: CustomizableCountdownProperties;
+  @Input() set running(value: boolean) {
+    if (value && this.currentInterval) {
+      clearInterval(this.currentInterval);
+      this.done.emit(this.currentTime);
+    }
+  }
   @Output() done: EventEmitter<any> = new EventEmitter();
 
   defaultProperties: CountdownProperties = {
@@ -44,9 +50,9 @@ export class CountdownComponent implements OnInit {
     this.reloader.subscribe((value) => {
       if (value) this.initialize();
     });
-    this.stopTimer.subscribe((value) => {
-      if (value) clearInterval(this.currentInterval);
-    })
+    // this.stopTimer.subscribe((value) => {
+    //   if (value) clearInterval(this.currentInterval);
+    // });
   }
 
   initialize() {
